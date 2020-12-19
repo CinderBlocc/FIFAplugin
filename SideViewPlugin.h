@@ -1,5 +1,5 @@
 #pragma once
-#pragma comment(lib, "BakkesMod.lib")
+#pragma comment(lib, "PluginSDK.lib")
 #include "bakkesmod/plugin/bakkesmodplugin.h"
 
 class SideViewPlugin : public BakkesMod::Plugin::BakkesModPlugin
@@ -14,8 +14,8 @@ private:
 	bool isInRearCam = false;
 
 public:
-	virtual void onLoad();
-	virtual void onUnload();
+	void onLoad() override;
+	void onUnload() override;
 
 	void CreateValues();
 	void Render(CanvasWrapper canvas);
@@ -23,7 +23,7 @@ public:
 
 	void Initialize();
 	bool CanCreateValues();
-	bool IsCVarNull(string cvarName);
+	bool IsCVarNull(std::string cvarName);
 	void Enable();
 	void Disable();
 	void HandleValues();

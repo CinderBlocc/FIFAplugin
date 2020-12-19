@@ -165,7 +165,7 @@ void SideViewPlugin::onUnload(){}
 void SideViewPlugin::Initialize()
 {
 	//Install parent plugin if it isn't already installed. Ensure parent plugin is loaded.
-	if(!experimental::filesystem::exists(".\\bakkesmod\\plugins\\CameraControl.dll"))
+	if(!std::filesystem::exists(gameWrapper->GetBakkesModPath() / "plugins" / "CameraControl.dll"))
 		cvarManager->executeCommand("bpm_install 71");
 	cvarManager->executeCommand("plugin load CameraControl", false);
 
